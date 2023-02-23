@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/core/constants/color_constants.dart';
+import 'package:flutter_app/representation/screens/splash_screen.dart';
+import 'package:flutter_app/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,18 +20,9 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: ColorPalette.backgroundScaffoldColor,
         backgroundColor: ColorPalette.backgroundScaffoldColor
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(),
+      home: const SplashScreen(),
+      debugShowCheckedModeBanner: false,
+      routes: routes,
     );
   }
 }
