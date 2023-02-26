@@ -7,5 +7,8 @@ class AssetHelper {
   static const String oval1 = 'assets/images/oval_1.png';
   static const String oval2 = 'assets/images/oval_2.png';
   static const String avatar = 'assets/images/avatar.png';
+  static const String iconHotel = 'assets/images/icon_hotel.png';
+  static const String iconPlane = 'assets/images/icon_plane.png';
+  static const String iconHotelPlane = 'assets/images/icon_hotel_plane.png';
 
 }
