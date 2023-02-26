@@ -6,6 +6,8 @@ import 'package:flutter_app/core/constants/dismention_constants.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'home_screen.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -25,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
       body: IndexedStack(
         index: _currentIndex,
         children: [
-          Container(color: Colors.amber),
+          HomeScreen(),
           Container(color: Colors.blue),
           Container(color: Colors.brown),
           Container(color: Colors.cyan),
