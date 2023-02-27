@@ -7,6 +7,7 @@ class ColorPalette {
 
   static const Color dividerColor = Color(0xff8F67E8);
   static const Color text1Color = Color(0xff313131);
+  static const Color text2Color = Color(0xff636363);
   static const Color subTitleColor = Color(0xff838383);
   static const Color backgroundScaffoldColor = Color(0xffF2F2F2);
   

@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_app/core/constants/dismention_constants.dart';
 import 'package:flutter_app/core/helpers/asset_helper.dart';
 import 'package:flutter_app/core/helpers/image_helper.dart';
+import 'package:flutter_app/representation/screens/hotel_booking_screen.dart';
 import 'package:flutter_app/representation/widgets/app_bar_container.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -70,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 _buildItemCategory(AssetHelper.iconHotel, "Hotel", Color(0xffFE9C5E), () {
-                  print("Tap Hotel");
+                  Navigator.of(context).pushNamed(HotelBookingScreen.routeName);
                 }),
                 SizedBox(width: 15),
                 _buildItemCategory(AssetHelper.iconPlane, "Flights", Color(0xffF77777), () {
