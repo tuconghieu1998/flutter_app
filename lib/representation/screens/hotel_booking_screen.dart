@@ -1,10 +1,15 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_app/core/helpers/asset_helper.dart';
+import 'package:flutter_app/representation/screens/select_date_screen.dart';
 import 'package:flutter_app/representation/widgets/app_bar_container.dart';
 import 'package:flutter_app/representation/widgets/button_widget.dart';
 import 'package:flutter_app/representation/widgets/hotel_booking_item_widget.dart';
+import '../../core/extensions/date_ext.dart';
+
 
 class HotelBookingScreen extends StatefulWidget {
   const HotelBookingScreen({super.key});
@@ -16,6 +21,8 @@ class HotelBookingScreen extends StatefulWidget {
 }
 
 class _HotelBookingScreenState extends State<HotelBookingScreen> {
+  String? dateSelected;
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,15 +41,25 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
                 },
               ),
               SizedBox(height: 20,),
-              HotelBookingItemWidget(
+              StatefulBuilder(builder: (context, setState) {
+                return HotelBookingItemWidget(
                 icon: AssetHelper.iconDate,
                 color: Color(0xffF77777),
                 title: "Select Date",
-                subTitle: "13 Feb - 18 Feb 2021",
-                onTap: () {
-                  print("Tap Date");
+                subTitle: dateSelected ?? "13 Feb - 18 Feb 2021",
+                onTap: () async {
+                  print('print DateTime');
+                  final result = await Navigator.of(context).pushNamed(SelectDateScreen.routeName);
+                  if(!(result is Null)) {
+                    if(!(result as List<DateTime?>).any((element) => element == null)) {
+                      dateSelected = '${result[0]?.getStartDate} - ${result[1]?.getEndDate}';
+                      setState((){});
+                    }
+                  }
+                  
                 },
-              ),
+              );
+              }),
               SizedBox(height: 20,),
               HotelBookingItemWidget(
                 icon: AssetHelper.iconBed,

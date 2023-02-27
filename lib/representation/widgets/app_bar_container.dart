@@ -28,7 +28,11 @@ class AppBarContainerWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: kMediumPadding),
                 child: this.title ?? Row(
                 children: [
-                  Container(
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Container(
                     width: 32,
                     height: 32,
                     decoration: BoxDecoration(
@@ -40,6 +44,8 @@ class AppBarContainerWidget extends StatelessWidget {
                       color: Color(0xff232323),
                       )
                   ),
+                  ),
+                  
                   Expanded(
                     child: Center(child: Text(this.titleString ?? "", style: TextStyle(fontSize: 30),))
                   ),

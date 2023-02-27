@@ -18,7 +18,9 @@ class HotelBookingItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
       width: double.infinity,
       height: 70,
       padding: EdgeInsets.symmetric(horizontal: 20),
@@ -53,6 +55,7 @@ class HotelBookingItemWidget extends StatelessWidget {
         ],
       ),
       )
+    ),
     );
   }
 }
