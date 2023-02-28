@@ -47,7 +47,7 @@ class AppBarContainerWidget extends StatelessWidget {
                   ),
                   
                   Expanded(
-                    child: Center(child: Text(this.titleString ?? "", style: TextStyle(fontSize: 30),))
+                    child: Center(child: Text(this.titleString ?? "", style: TextStyle(fontSize: 30), textAlign: TextAlign.center,))
                   ),
                     if(implementTrailing == true) 
                       Container(

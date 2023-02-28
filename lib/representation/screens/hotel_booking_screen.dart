@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_app/core/helpers/asset_helper.dart';
+import 'package:flutter_app/representation/screens/add_guest_room_screen.dart';
 import 'package:flutter_app/representation/screens/select_date_screen.dart';
 import 'package:flutter_app/representation/widgets/app_bar_container.dart';
 import 'package:flutter_app/representation/widgets/button_widget.dart';
@@ -22,6 +23,7 @@ class HotelBookingScreen extends StatefulWidget {
 
 class _HotelBookingScreenState extends State<HotelBookingScreen> {
   String? dateSelected;
+  String? guestAndRoomSelected;
   
   @override
   Widget build(BuildContext context) {
@@ -61,15 +63,25 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
               );
               }),
               SizedBox(height: 20,),
-              HotelBookingItemWidget(
+              StatefulBuilder(builder: (context, setState) {
+                return HotelBookingItemWidget(
                 icon: AssetHelper.iconBed,
                 color: Color(0xff3EC8BC),
                 title: "Guest and Room",
-                subTitle: "2 Guest, 1 Room",
-                onTap: () {
+                subTitle: guestAndRoomSelected ?? "2 Guest, 1 Room",
+                onTap: () async {
                   print("Tap Guest and Room");
-                },
-              ),
+                  final result = await Navigator.of(context).pushNamed(AddGuestAndRoomScreen.routeName);
+                  if(!(result is Null)) {
+                    if(!(result as List<int?>).any((element) => element == null)) {
+                      guestAndRoomSelected = '${result[0]?.toString()} Guest - ${result[1]?.toString()} Room';
+                      setState((){});
+                    }
+                  }
+                }
+                );
+              }),
+              
               SizedBox(height: 20,),
               ButtonWidget(title: "Search", onTap: (){
                 print("Tap Search Booking");

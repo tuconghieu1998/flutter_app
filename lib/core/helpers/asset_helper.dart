@@ -13,5 +13,9 @@ class AssetHelper {
   static const String iconLocation = 'assets/images/icon_location.png';
   static const String iconDate = 'assets/images/icon_date.png';
   static const String iconBed = 'assets/images/icon_bed.png';
+  static const String iconGuest = 'assets/images/icon_guest.png';
+  static const String iconBed1 = 'assets/images/icon_bed1.png';
+  static const String iconIncrease = 'assets/images/icon_increase.png';
+  static const String iconDecrease = 'assets/images/icon_decrease.png';
 
 }
