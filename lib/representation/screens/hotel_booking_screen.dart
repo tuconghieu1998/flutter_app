@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_app/core/helpers/asset_helper.dart';
 import 'package:flutter_app/representation/screens/add_guest_room_screen.dart';
+import 'package:flutter_app/representation/screens/hotel_seach_result_screen.dart';
 import 'package:flutter_app/representation/screens/select_date_screen.dart';
 import 'package:flutter_app/representation/widgets/app_bar_container.dart';
 import 'package:flutter_app/representation/widgets/button_widget.dart';
@@ -85,6 +86,7 @@ class _HotelBookingScreenState extends State<HotelBookingScreen> {
               SizedBox(height: 20,),
               ButtonWidget(title: "Search", onTap: (){
                 print("Tap Search Booking");
+                Navigator.of(context).pushNamed(HotelSearchResultScreen.routeName);
               },)
             ],
           ),
