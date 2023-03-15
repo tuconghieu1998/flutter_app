@@ -32,5 +32,14 @@ extension ExtendedTextStyle on TextStyle {
     return copyWith(color: Colors.white);
   }
 
+  TextStyle get subTitleTextColor {
+    return copyWith(color: ColorPalette.subTitleColor);
+  }
 
+  TextStyle get fontHeader {
+    return copyWith(
+      fontSize: 22,
+      height: 22 / 20,
+    );
+  }
 }
